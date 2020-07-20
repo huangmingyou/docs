@@ -1,0 +1,204 @@
+\documentclass[UTF8]{ctexart}
+
+% 包配置
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings} %列出代码%
+\usepackage{xcolor} %列出代码%
+\usepackage{fontawesome}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fontspec}
+\usepackage{fancyhdr}
+\usepackage[colorlinks,
+            linkcolor=black,
+            anchorcolor=blue,
+            citecolor=green
+            ]{hyperref}
+%\usepackage{xeCJK}%中文字体
+
+
+% 页面配置
+
+%\geometry{papersize={40cm,15cm}}
+\geometry{left=1cm,right=2cm,top=3cm,bottom=4cm}
+\graphicspath{ {./img/} }
+
+
+% 
+\pagestyle{fancy}
+\lhead{\author}
+\chead{\date}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+
+%\lstset{language=Ruby ,label=ruby,backgroundcolor=\color{gray!50},frame=shadow,breaklines=true,basicstyle=\small}
+
+\lstset{
+ columns=fixed,       
+ numbers=left,                                        % 在左侧显示行号
+ numberstyle=\tiny\color{gray},                       % 设定行号格式
+ frame=none,                                          % 不显示背景边框
+ backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+ keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+ numberstyle=\footnotesize\color{darkgray},           
+ commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+ stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+ showstringspaces=false,                              % 不显示字符串中的空格
+ language=bash,                                        % 设置语言
+}
+
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headwidth}{\textwidth}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\baselinestretch}{1.4}
+
+% 英文字体配置部分
+\setmainfont{Cabin}%Times New Roman
+\setsansfont{Cabin Regular}
+\setmonofont{Cabin Italic}
+% 中文字体配置部分
+\setCJKmainfont{SimSun}%正文字体
+\setCJKsansfont{微软雅黑}%无衬线字体
+\setCJKmonofont{SimSun}%等宽字体
+\setCJKfamilyfont{boldsong}{Source Han Serif SC Heavy}
+
+% 字体配置
+\setCJKmainfont{SimSun}
+\newCJKfontfamily\msyh{微软雅黑}
+
+
+%\sffamily 无衬线字体
+%\ttfamily 等宽字体
+%\sffamily in English typing
+%\ttfamily in English typing
+
+% 标题格式
+\ctexset {
+section/name = {第,节}
+}
+
+\title{GNU/Linux入门}
+\author{huangmingyou@gmail.com}
+\date{\today}
+
+
+
+
+
+
+
+% 正文
+\begin{document}
+\maketitle
+\tableofcontents
+
+
+
+\newpage
+\section{\msyh 什么是GNU/Linux}
+\subsection{\msyh 什么是GNU}
+GNU是一个自由的操作系统，其内容软件完全以GPL方式发布。这个操作系统是GNU计划的主要目标，名称来自GNU's Not Unix!的递归缩写，因为GNU的设计类似Unix，但它不包含具著作权的Unix代码。GNU的创始人，理查德·马修·斯托曼，将GNU视为“达成社会目的技术方法”。
+
+\begin{center}
+\includegraphics[width=0.15\textwidth]{gnu.png}
+\par
+GNU logo
+\end{center}
+\par
+作为操作系统，GNU的发展仍未完成，其中最大的问题是具有完备功能的内核尚未被开发成功。GNU的内核，称为Hurd，是自由软件基金会发展的重点，但是其发展尚未成熟。在实际使用上，多半使用Linux内核、FreeBSD等替代方案，作为系统核心，其中主要的操作系统是Linux的发行版。Linux操作系统包涵了Linux内核与其他自由软件项目中的GNU组件和软件，可以被称为GNU/Linux。
+
+
+\subsection{\msyh 什么是Linux}
+Linux内核（英语：Linux kernel）是一种开源的类Unix操作系统宏内核。整个Linux操作系统家族基于该内核部署在传统计算机平台（如个人计算机和服务器，以Linux发行版的形式）和各种嵌入式平台，如路由器、无线接入点、专用小交换机、机顶盒、FTA接收器、智能电视、数字视频录像机、网络附加存储（NAS）等。工作于平板电脑、智能手机及智能手表的Android操作系统同样通过Linux内核提供的服务完成自身功能。尽管于桌面电脑的占用率较低，基于Linux的操作系统统治了几乎从移动设备到主机的其他全部领域。截至2017年11月，世界前500台最强的超级计算机全部使用Linux。
+
+
+\par
+\begin{center}
+\includegraphics[width=0.15\textwidth]{tux.png}
+\par
+Linux logo
+\end{center}
+\par
+Linux内核最早是于1991年由芬兰黑客林纳斯·托瓦兹为自己的个人电脑开发的，他当时在Usenet新闻组comp.os.minix登载帖子，这份著名的帖子标志着Linux内核计划的正式开始。如今，该计划已经拓展到支持大量的计算机体系架构，远超其他操作系统和内核。它迅速吸引了一批开发者和用户，利用它作为其他自由软件项目的内核，如著名的 GNU 操作系统。而今天，Linux 内核已接受了超过1200家公司的近12000名程序员的贡献，其中包括一些知名的软硬件发行商。
+
+从技术上说，Linux 只是一个符合POSIX 标准的内核。它提供了一套应用程序接口（API），通过接口用户程序能与内核及硬件交互。仅仅一个内核并不是一套完整的操作系统。有一套基于 Linux 内核的完整操作系统叫作Linux 操作系统，或是GNU/Linux（在该系统中包含了很多GNU 计划的系统组件）。
+
+\subsection{\msyh 什么是GNU/Linux发行版}
+Linux 发行版（英语：Linux distribution，也被叫做GNU/Linux 发行版），为一般用户预先集成好的Linux操作系统及各种应用软件。一般用户不需要重新编译，在直接安装之后，只需要小幅度更改设置就可以使用，通常以软件包管理系统来进行应用软件的管理。Linux发行版通常包含了包括桌面环境、办公包、媒体播放器、数据库等应用软件。这些操作系统通常由Linux内核、以及来自GNU计划的大量的函数库，和基于X Window的图形界面。有些发行版考虑到容量大小而没有预装 X Window，而使用更加轻量级的软件，如：busybox, UClibc 或 dietlibc。现在有超过300个Linux发行版（Linux发行版列表）。大部分都正处于活跃的开发中，不断地改进。
+\par
+
+由于大多数软件包是自由软件和开源软件，所以Linux发行版的形式多种多样——从功能齐全的桌面系统以及服务器系统到小型系统（通常在嵌入式设备，或者启动软盘）。除了一些定制软件（如安装和配置工具），发行版通常只是将特定的应用软件安装在一堆函数库和内核上，以满足特定用户的需求。
+
+\par
+这些发行版可以分为商业发行版，比如Ubuntu（Canonical公司）、Fedora（Red Hat）、openSUSE（Novell）和Mandriva Linux；和社区发行版，它们由自由软件社区提供支持，如Debian和Gentoo；也有发行版既不是商业发行版也不是社区发行版，如Slackware。
+\newpage
+\par
+\par
+
+
+\section{\msyh 如何获得GNU/Linux}
+
+选择好发行版以后，从官方网站或者中国的镜像网站找到下载地址，下载最新的安装镜像，安装镜像通常是打包成iso格式。下载好安装镜像以后，用刻录软件把iso文件刻录到U盘或者DVD上。如果刻录到DVD还需要一个DVD刻录机，因此最方便的选择是刻录到U盘。如果只是体验Linux系统，
+可以选择安装virtualbox这样的虚拟器来安装Linux。在Windows10系统上，还可以从windows软件商店安装ubuntu系统。这是一个不带图形界面的linux系统。
+\par
+除了自行下载安装镜像安装linux这种方法以外。还可以直接购买预装linux系统的电脑。也可以在云服务器厂商购买安装linux的云服务器。
+
+\par
+
+关于如何安装Linux系统，通常发行版官方的文档都会提供非常详细的安装说明。值得注意的是，如果希望安装Linux,Windows双系统。需要处理好磁盘分区。
+
+\subsection{\msyh 安装linux系统涉及到的知识点}
+\subsubsection{\msyh 硬盘分区}
+通常，在安装windows系统的时候，需要对磁盘划分一个C盘，然后把windows系统安装到C盘，剩余的空间可以划分给其他例如D,E,F盘。安装完成，系统就能跑起来了。但是，安装Linux的时候，通常安装程序会让你划分分区，并且提示你把分区挂载到根目录或者/home目录。如果刚接触到Linux,会对挂载分区一头雾水。
+\par
+
+
+操作系统使用物理硬盘上的空间，一般会对硬盘进行分区（也可以不分区），操作系统会把分区信息映射到操作系统对应的标记符。windows的方法是一个分区映射到一个盘符，比如C,D,E,F,G。简单的一一对应关系。Linux的做法和windows有区别，Linux上没有盘符的概念，取而代之的是一棵目录树的概念。目录的根叫做根目录，用"/"表示。根目录下可以有一个叫做"home"的目录，表示成"/home",home目录下可以有一个叫做guest的目录，表示成/home/guest。根目录必须有一个对应的硬盘分区，术语叫做把某分区挂载到根目录。也可以把其他分区挂载到/home目录，或者/home/guest目录。
+\par
+当插入一块u盘到windows的时候，windows会分配一个新的盘符给u盘，比如G盘。Linux系统插入U盘的时候，现代的操作系统会挂载到类似/media/guest/ABCD123 这样的目录下。
+
+\par
+Linux系统有一个特性，叫做“一切皆文件”。或者说，任何东西在linux系统上，都能找到对应的文件。比如一个进程，一个tcp链接，一个硬盘，一个硬盘分区，一个鼠标等等。
+\par
+在windows系统下，硬盘分区和系统盘符通常是混合在一起的概念，说C盘的时候，既是在说操作系统里面的C盘，也同时暗指了硬盘上的一个分区。但是，在Linux系统下，首先会对硬盘命名，同时也会分区命名，并且会分配一个文件来与之对应。例如在linux上挂载一块scsi硬盘，会分配一个类似/dev/sda这样的名字来对应整个硬盘。而/dev/sda1对应这个硬盘的第一个分区，/dev/sda2 对应第2个分区。
+我们可以把/dev/sda2这个分区挂载到/home目录，也同时可以把/dev/sda3挂载到/home/guest目录。
+
+\subsubsection{\msyh 引导系统}
+计算机开机通电以后，主板上的bios系统会完成自检，然后根据bios设置，选择从什么地方启动系统。可选择从光盘，U盘，硬盘，或者是网络启动系统。从硬盘启动的时候，会读取硬盘主分区表的启动信息。执行硬盘上的启动程序。硬盘分区表常见的有MBR和GPT,windows系统一般使用MBR。mac os 使用GPT。 Linux两种分区表都可以使用。Linux安装程序在安装过程中会询问把启动程序安装到什么设备上。假如一台计算机有一块scsi硬盘，选择安装到/dev/sda就行。注意，这里是/dev/sda,而不是/dev/sda1。表示启动程序是安装到硬盘的主分区上。早期的Linux使用lilo作为引导程序，现在流行的引导程序是grub2。
+
+\subsubsection{\msyh 桌面系统}
+习惯了windows只有一个桌面系统，首次接触到linux,会发现linux可以选择各种不同风格的桌面系统。先对几个相关术语进行解释。
+\par
+{\msyh X window 核心协议:}
+\par
+一个C/S模式的协议。服务器端包括键盘，鼠标，显示器。客户端包括各种应用程序。例如我在电脑A运行了一个X系统。并且在网络上监听。那么其他电脑就可以通过网络在电脑A上显示内容。X window 协议只是一个协议。具体的实现包括Xfree86,以及xorg等。现代的linux发行版通常都是用xorg。
+\begin{center}
+\includegraphics[width=0.15\textwidth]{x11.png}
+\includegraphics[width=0.15\textwidth]{xorg.png}
+\includegraphics[width=0.15\textwidth]{xfree86.png}
+\par
+X与             xorg与              xfree86 logo
+\end{center}
+\par
+{\msyh Wayland协议:}
+\par
+同X window 协议竞争的新的协议。实现的实例叫做Weston。 ubuntu发行版可以选择使用wayland来取代X window协议。
+\begin{center}
+\includegraphics[width=0.15\textwidth]{wayland.png}
+\par
+wayland logo
+\end{center}
+\par
+{\msyh 显示管理器:}
+通常是指登录到桌面系统之前让你输入用户名和密码的那个组件。是的，在Linux系统里面，这样的组件也是独立的，而且有很多可以选择的项目。比如lightdm,xdm,gdm,wdm等。登录的时候，你可以选择登录gnome,kde,xface这样的桌面系统。
+\par
+{\msyh 桌面环境:}
+为了方便用户使用计算机，一个典型的桌面环境会提供给用户文件管理，工具栏，热插拔设备管理，网络浏览器，邮件客户端等组件。当电脑启动登录进windows系统以后，看到的那个环境就是一个桌面环境。在Linux系统中，存在如gnome,kde这样功能比较全面的桌面环境，也存在xfce这样的轻量桌面环境。还存在专门给儿童使用的桌面环境。
+\par
+{\msyh 窗口管理器:}
+管理窗口行为的系统，比如管理窗口如何最大，最小，怎么平铺等等。比如fvwm就是一个窗口管理器。可以通过配置窗口管理器，实现灵活的窗口操作。比如可以按F1让窗口最大或者按F2让窗口缩放到一个固定位置等等。
+\end{document}
