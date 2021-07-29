@@ -1,0 +1,97 @@
+\documentclass[UTF8]{ctexart}
+
+% 包配置
+
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage{wrapfig}
+\usepackage{algorithmic}
+\usepackage{listings} %列出代码%
+\usepackage{xcolor} %列出代码%
+\usepackage{fontawesome}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fontspec}
+\usepackage{fancyhdr}
+\usepackage[colorlinks,
+            linkcolor=black,
+            anchorcolor=blue,
+            citecolor=green
+            ]{hyperref}
+%\usepackage{xeCJK}%中文字体
+
+
+% 页面配置
+
+%A4 横
+%\geometry{papersize={30.1cm,21cm}}
+%A4 
+\geometry{papersize={21cm,30.1cm}}
+%10寸
+%\geometry{papersize={25.4cm,25.4cm}}
+%8寸
+%\geometry{papersize={20.3cm,20.3cm}}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=3.5cm}
+
+\graphicspath{ {./img/} }
+
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}
+
+
+
+%\pagestyle{fancy}
+\pagestyle{empty}
+\fancyhead[L]{左页眉}
+\fancyhead[R]{右页眉}
+\fancyhead[L]{中间页眉}
+\fancyfoot[L]{左页脚}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{右页脚}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\headwidth}{\textwidth}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\baselinestretch}{2.5}
+\linespread{2.0}
+
+% 英文字体配置部分
+%\setmainfont{Cabin}%Times New Roman
+%\setsansfont{Cabin Regular}
+%\setmonofont{Cabin Italic}
+% 中文字体配置部分
+\setCJKmainfont{方正兰亭宋简体}%正文字体
+\setCJKsansfont{微软雅黑}%无衬线字体
+\setCJKmonofont{方正兰亭宋简体}%等宽字体
+\setCJKfamilyfont{方正兰亭宋简体}{Source Han Serif SC Heavy}
+
+% 字体配置
+\setCJKmainfont{微软雅黑}
+
+\newCJKfontfamily\msyh{微软雅黑}
+\newCJKfontfamily\song{方正兰亭宋简体}
+\newCJKfontfamily\fzkai{方正硬笔楷书简体}
+\newCJKfontfamily\fzmeng{温柔所向为梦想}
+\newCJKfontfamily\fzbys{方正标雅宋简体}
+
+
+%\sffamily 无衬线字体
+%\ttfamily 等宽字体
+%\sffamily in English typing
+%\ttfamily in English typing
+
+% 标题格式
+\ctexset {
+section/name = {第,节}
+}
+
+\title{中华人民共和国演义}
+\author{hmy}
+\date{\today}
+
+
+
+
+
+% 正文
+\begin{document}
+\input{content.tex}
+\end{document}
